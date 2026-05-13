@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Background gradient circle -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="ticketGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.95" />
+      <stop offset="100%" style="stop-color:#e0e7ff;stop-opacity:0.95" />
+    </linearGradient>
+    
+    <!-- Glow effect -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="50" cy="50" r="48" fill="url(#bgGradient)"/>
+  
+  <!-- Inner glow circle -->
+  <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+  
+  <!-- Ticket shape -->
+  <g transform="translate(50, 50)">
+    <!-- Main ticket body -->
+    <rect x="-22" y="-16" width="44" height="32" rx="4" fill="url(#ticketGradient)" filter="url(#glow)"/>
+    
+    <!-- Perforation circles on left -->
+    <circle cx="-22" cy="-10" r="2.5" fill="url(#bgGradient)"/>
+    <circle cx="-22" cy="-3" r="2.5" fill="url(#bgGradient)"/>
+    <circle cx="-22" cy="3" r="2.5" fill="url(#bgGradient)"/>
+    <circle cx="-22" cy="10" r="2.5" fill="url(#bgGradient)"/>
+    
+    <!-- Perforation circles on right -->
+    <circle cx="22" cy="-10" r="2.5" fill="url(#bgGradient)"/>
+    <circle cx="22" cy="-3" r="2.5" fill="url(#bgGradient)"/>
+    <circle cx="22" cy="3" r="2.5" fill="url(#bgGradient)"/>
+    <circle cx="22" cy="10" r="2.5" fill="url(#bgGradient)"/>
+    
+    <!-- Dollar sign -->
+    <text x="0" y="8" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="url(#bgGradient)" text-anchor="middle">$</text>
+    
+    <!-- Stars decoration -->
+    <g opacity="0.7">
+      <path d="M-12,-8 L-11,-6 L-9,-6 L-11,-4 L-10,-2 L-12,-4 L-14,-2 L-13,-4 L-15,-6 L-13,-6 Z" fill="#fbbf24"/>
+      <path d="M12,-8 L13,-6 L15,-6 L13,-4 L14,-2 L12,-4 L10,-2 L11,-4 L9,-6 L11,-6 Z" fill="#fbbf24"/>
+    </g>
+  </g>
+  
+  <!-- Sparkle effects -->
+  <circle cx="20" cy="25" r="1.5" fill="#ffffff" opacity="0.8"/>
+  <circle cx="78" cy="30" r="1" fill="#ffffff" opacity="0.6"/>
+  <circle cx="25" cy="75" r="1.5" fill="#ffffff" opacity="0.7"/>
+  <circle cx="82" cy="70" r="1" fill="#ffffff" opacity="0.8"/>
+</svg>
