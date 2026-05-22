@@ -1,248 +1,79 @@
-# 🎰 Decentralized Lottery DApp
+# Lottery DApp
 
-A fully decentralized Lottery DApp built using Solidity, Foundry, and React. Users can enter the lottery by paying an entrance fee, and a random winner is selected securely using blockchain-based randomness.
+A decentralised lottery application built on Ethereum. Players enter by paying ETH, and a winner is picked automatically — fully transparent and trustless on-chain.
 
-This project demonstrates smart contract development, Web3 wallet integration, decentralized randomness, and frontend interaction with Ethereum smart contracts.
+## Features
 
----
+- **Enter the Lottery** – Players join by sending ETH to the smart contract
+- **Automatic Winner Selection** – Winner is picked programmatically with no manual intervention
+- **Owner Controls** – The contract owner can start and end lottery rounds
+- **Instant Payout** – Prize pool is sent directly to the winner's wallet upon draw
 
-# ✨ Features
+## Tech Stack
 
-- 🎟️ Enter Lottery with ETH
-- 🔐 Secure Smart Contract
-- 🎲 Random Winner Selection
-- ⚡ Chainlink VRF Integration
-- 🤖 Automated Winner Picking
-- 💳 Wallet Connection
-- 📱 Responsive Frontend UI
-- 🧪 Smart Contract Testing with Foundry
-- 🚀 Deployment Scripts Included
+- **Solidity** – Smart contract logic
+- **Foundry** – Contract testing and deployment
+- **React.js** – Frontend interface
+- **Ethers.js** – Blockchain interaction from the frontend
 
----
+## Getting Started
 
-# 🛠️ Tech Stack
+### Prerequisites
 
-## Blockchain
-- Solidity
-- Foundry
-- Ethereum
+- Node.js installed
+- Foundry installed — [getfoundry.sh](https://getfoundry.sh)
+- MetaMask or any Ethereum wallet browser extension
 
-## Frontend
-- React.js
-- Next.js
-- Tailwind CSS
-- Ethers.js / Viem
-
-## Web3 Tools
-- Chainlink VRF
-- Chainlink Automation
-- OpenZeppelin Contracts
-- MetaMask
-
----
-
-# ⚙️ Installation & Setup
-
-## 1️⃣ Clone Repository
+### Clone the Repo
 
 ```bash
-git clone https://github.com/your-username/lottery-dapp.git
-cd lottery-dapp
+git clone https://github.com/RajatSinghhh/Lottery
+cd Lottery
 ```
 
----
-
-## 2️⃣ Install Dependencies
-
-### Install Foundry Dependencies
+### Smart Contract Setup
 
 ```bash
+# Install Foundry dependencies
 forge install
+
+# Run tests
+forge test
+
+# Deploy to a local network
+forge script script/Deploy.s.sol --rpc-url http://localhost:8545 --broadcast
 ```
 
-### Install Frontend Dependencies
+### Frontend Setup
 
 ```bash
 cd frontend
 npm install
+npm start
 ```
 
----
+The app will start at `http://localhost:3000`.
 
-# 🧪 Running Tests
+### Configuration
 
-Run Smart Contract Tests:
+Create a `.env` file in the frontend directory:
 
-```bash
-forge test
+```env
+REACT_APP_CONTRACT_ADDRESS=your_deployed_contract_address
+REACT_APP_RPC_URL=your_rpc_url
 ```
 
-Run Verbose Tests:
+## How It Works
 
-```bash
-forge test -vvvv
-```
+1. Owner starts a new lottery round
+2. Players call `enter()` by sending the required ETH amount
+3. Owner ends the round and triggers winner selection
+4. The smart contract picks a winner and transfers the full prize pool to their address
 
-Check Test Coverage:
+## Live Demo
 
-```bash
-forge coverage
-```
+[https://auditdrop.com/Projects/lottery/](https://auditdrop.com/Projects/lottery/)
 
----
+## Author
 
-# 🚀 Deploy Smart Contracts
-
-## Start Local Blockchain
-
-```bash
-anvil
-```
-
----
-
-## Deploy Locally
-
-```bash
-forge script script/DeployLottery.s.sol \
---rpc-url http://127.0.0.1:8545 \
---private-key your_private_key \
---broadcast
-```
-
----
-
-## Deploy to Testnet/Mainnet
-
-```bash
-forge script script/DeployLottery.s.sol \
---rpc-url $RPC_URL \
---private-key $PRIVATE_KEY \
---broadcast \
---verify
-```
-
----
-
-# 💻 Run Frontend
-
-```bash
-cd frontend
-npm run dev
-```
-
-Frontend will start on:
-
-```bash
-http://localhost:3000
-```
-
----
-
-# 🎮 How It Works
-
-1. Users connect their wallet
-2. Players enter the lottery by paying ETH
-3. Lottery contract stores all participants
-4. Chainlink VRF generates a secure random number
-5. A random winner is selected automatically
-6. Winner receives the lottery balance
-
----
-
-# 🔗 Wallet Support
-
-- MetaMask
-- WalletConnect
-- Injected Ethereum Wallets
-
----
-
-# 🌐 Smart Contract Verification
-
-Contracts can be verified on:
-
-- Etherscan
-- Sepolia Etherscan
-- Arbiscan
-- Basescan
-
----
-
-# 📜 Useful Commands
-
-## Foundry Commands
-
-```bash
-forge build
-forge test
-forge fmt
-forge coverage
-anvil
-```
-
-## Frontend Commands
-
-```bash
-npm run dev
-npm run build
-npm run start
-```
-
----
-
-# 🔒 Security
-
-- Uses Chainlink VRF for secure randomness
-- OpenZeppelin smart contract standards
-- Fully tested using Foundry
-- Follows Solidity best practices
-
----
-
-# 🤝 Contributing
-
-Contributions are welcome.
-
-## Steps
-
-1. Fork the repository
-
-2. Create a new branch
-
-```bash
-git checkout -b feature-name
-```
-
-3. Commit changes
-
-```bash
-git commit -m "Added new feature"
-```
-
-4. Push changes
-
-```bash
-git push origin feature-name
-```
-
-5. Open a Pull Request
-
----
-
-# 📄 License
-
-This project is licensed under the MIT License.
-
----
-
-# 👨‍💻 Author
-
-Developed by **Rajat Singh**
-
-
----
-
-# ⭐ Support
-
-If you found this project helpful, consider giving it a ⭐ on GitHub.
+**Rajat Singh** – [GitHub](https://github.com/RajatSinghhh) · [Portfolio](https://auditdrop.com)
